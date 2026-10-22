@@ -1,25 +1,50 @@
-# owleye-nids
+<div align="center">
 
-`owleye-nids` es una herramienta de observabilidad de red de bajo nivel para detectar comportamiento anomalo entre tu PC y un servidor en tiempo real.
+# OwlEye NIDS • Low-Level Network Observability
+### *Kernel-Level Raw Socket Sniffing, Scapy Packet Parsing & Real-Time Security Telemetry*
 
-## Potencial
-- Convierte trafico crudo (TCP/UDP/ICMP) en telemetria accionable.
-- Detecta temprano patrones de riesgo: `SYN flood`, `port scan`, picos de trafico y puertos sensibles.
-- Escala de laboratorio a operacion: dashboard live + notificaciones a Discord/Telegram.
-- Base practica para hardening, respuesta a incidentes y tuning de motores de red (ej. OwlEyeEngine).
+[![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Scapy Telemetry](https://img.shields.io/badge/Sniffing-Scapy_Low--Level-red?style=for-the-badge)](https://scapy.net/)
+[![Threat Detection](https://img.shields.io/badge/Security-SYN_Flood_%7C_PortScan-orange?style=for-the-badge)](https://github.com/ExeDevCentral)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## Quick Start
-```powershell
-pip install -r requirements.txt
-Copy-Item .\.env.example .\.env
-.\run.ps1 -ServerIp 192.168.1.50
+<p align="center">
+  A lightweight, real-time network security monitoring utility that converts raw Ethernet/IP/TCP/UDP/ICMP frames into structured telemetry, flagging anomalous connection bursts and scanning behaviors in real time.
+</p>
+
+</div>
+
+---
+
+## 🔍 Key Capabilities
+
+- **Low-Level Socket Sniffing:** Uses Scapy's high-efficiency packet filter to capture real-time raw network streams.
+- **Real-Time Anomaly Detection:** Built-in threshold trackers for SYN burst floods, port discovery scans, and unexpected ICMP ping storms.
+- **Terminal Observability Dashboard:** Colorized, live-updating CLI dashboard (`net_lowlevel_dashboard.py`) for instantaneous threat visibility.
+- **JSON Telemetry Streaming:** Formats captured security metadata into JSON Lines for external SIEM integration.
+
+---
+
+## 🚀 Execution & Usage
+
+```bash
+# Clone the repository
+git clone https://github.com/ExeDevCentral/owleye-nids.git
+cd owleye-nids
+
+# Install dependencies
+pip install scapy
+
+# Run monitor (requires root privileges for raw socket access)
+sudo python3 net_lowlevel_monitor.py
+
+# Run dashboard
+python3 net_lowlevel_dashboard.py
 ```
 
-Abrir: `http://127.0.0.1:8787`
+---
 
-## Archivos clave
-- `net_lowlevel_monitor.py`: captura y exporta eventos a JSONL.
-- `net_lowlevel_dashboard.py`: visualizacion, reglas de alerta y notificaciones.
-- `run.ps1`: levanta monitor + dashboard en dos terminales.
-- `docs/resumen-examen-cisco.md`: guia corta para examen Cisco.
-- `docs/owleyeengine-tecnico.md`: guia tecnica de rendimiento/kernel.
+## 👨‍💻 Author
+
+**Exequiel Echevarria**
+- GitHub: [@ExeDevCentral](https://github.com/ExeDevCentral)
